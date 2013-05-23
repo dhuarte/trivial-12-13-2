@@ -5,7 +5,7 @@
 #include<arpa/inet.h>
 #include<sys/socket.h>
 
-
+#define TAM_BUFF 300
 
 ///////////////////////////////
 //Implementacion de funciones//
@@ -59,5 +59,15 @@ int Socket_prepararServidor(char p[],char m[]){
     return Socket_esperaConexiones(sock);
 }
 
+char* Socket_leer(int sock){
+    char buf[TAM_BUFF];
+
+    f=fdopen(sock,"r");
+    setbuf(f,NULL);
+    strcpy(buf,"");
+    fgets(buf,TAM_BUFF,f);
+
+    return buff;
+}
 
 
